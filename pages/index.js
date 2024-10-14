@@ -79,18 +79,18 @@ export default function Home() {
                             <div className="carousel-item">
                                 <a href="produtos.html">
                                     <div className="product-name">Linha Médica</div>
-                                    <Image src="/midias/img3.jpg" alt="Produto 2" width={300} height={200} />
+                                    <Image src="" alt="Produto 2" width={300} height={200} />
                                 </a>
                             </div>
                             <div className="carousel-item">
                                 <a href="produtos.html">
                                     <div className="product-name">Linha Escolar</div>
-                                    <Image src="/midias/img4.jpg" alt="Produto 3" width={300} height={200} />
+                                    <Image src="" alt="Produto 3" width={300} height={200} />
                                 </a>
                             </div>
                             <div className="carousel-item">
                                 <a href="produtos.html">
-                                    <div className="product-name">Linha Rural</div>
+                                    <div className="product-name">Linha Street</div>
                                     <Image src="/midias/img5.jpg" alt="Produto 4" width={300} height={200} />
                                 </a>
                             </div>
@@ -103,13 +103,13 @@ export default function Home() {
                             <div className="carousel-item">
                                 <a href="produtos.html">
                                     <div className="product-name">Linha Cozinha</div>
-                                    <Image src="/midias/img7.jpg" alt="Produto 6" width={300} height={200} />
+                                    <Image src="" alt="Produto 6" width={300} height={200} />
                                 </a>
                             </div>
                             <div className="carousel-item">
                                 <a href="produtos.html">
                                     <div className="product-name">Linha Esportiva</div>
-                                    <Image src="/midias/img2.jpg" alt="Produto 1" width={300} height={200} />
+                                    <Image src="" alt="Produto 1" width={300} height={200} />
                                 </a>
                             </div>
                         </div>
