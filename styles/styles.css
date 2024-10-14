@@ -1,0 +1,286 @@
+/* Fontes */
+.bai-jamjuree-light {
+    font-family: "Bai Jamjuree";
+    font-weight: 300;
+}
+
+.bai-jamjuree-medium {
+    font-family: "Bai Jamjuree";
+    font-weight: 500;
+}
+
+html {
+    scroll-behavior:smooth;
+  }
+
+
+body {
+    background-color: #c3b89b; /* Fundo principal usando a cor #c3b89b */
+    font-family: 'Bai Jamjuree', system-ui;
+    margin: 0;
+    padding: 0;
+    font-weight: 300; /* Aplica o peso light por padrão */
+    color: #1f2424;
+}
+header {
+    font-family: 'Bai Jamjuree', system-ui;
+    font-weight: 800;
+    background-color: #1f2424; /* Fundo escuro para o cabeçalho */
+    border-bottom: 1px solid #697548; /* Linha de divisão com a cor #697548 */
+    width: 100%;
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logo img {
+    width: 280px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    max-width: 100%; /* Responsividade para telas menores */
+    display: block;
+    margin: 0 auto;
+}
+
+.divider {
+    height: 60px;
+    width: 1px;
+    background-color: #697548; /* Linha divisória com a cor #697548 */
+    margin: 0 20px;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 100px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #c3b89b; /* Cor dos links no menu de navegação */
+    font-size: 26px;
+}
+
+nav ul li a:hover {
+    color: #697548; /* Tom mais claro ao passar o mouse */
+}
+
+.grid_content {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(22, 1fr); 
+}
+
+.apresentacao {
+    display: flex;
+    justify-content: center;
+    grid-column: 2 / 10;
+    grid-row: 1 / 6 ; 
+}
+
+
+.descricao {
+    grid-column: 1;
+    padding: 30px;
+    color: #1f2424;
+}
+
+.descricao h1 {
+    font-family: 'Bai Jamjuree', system-ui;
+    font-weight: 900;
+    color: #1f2424;
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 1px;
+}
+
+.descricao p {
+    font-family: 'Bai Jamjuree', system-ui;
+    font-weight:400;
+    color: #697548;
+    font-size: 22px;
+    text-align: center;
+}
+
+.imagem {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 45px;
+}
+
+.imagem img {
+    height: auto;
+    max-height: 450px; /* Define uma altura máxima para a imagem */
+    object-fit: cover; /* Ajusta a imagem para preencher sem distorções */
+    border-radius: 5px;
+    margin: 0 auto;
+    display: block;
+}
+
+.linhas_prod {
+    grid-column: 2 / 10 ;
+    grid-row: 6 / 11;
+}
+
+.clientes {
+    grid-column: 2 / 10;
+    grid-row: 11 / 16;
+    border: 1px solid red;
+    display: grid;  
+}
+
+.linhas_prod {
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 33.33%;
+    text-align: center;
+    padding: 10px;
+}
+
+.carousel-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.carousel-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.product-name {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        min-width: 100%;
+    }
+}
+
+.contato {
+    grid-column: 2 / 10;
+    grid-row: 16 / 21;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.contato h1 {
+    grid-column: 1 / 3;
+    text-align: center;
+}
+
+.contact-form {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.contact-form button {
+    background-color: #697548;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #556436;
+}
+
+.contact-info {
+    justify-content: center;
+    grid-column: 2;
+    text-align: center;
+}
+
+.contact-info h2 {
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-family: "Bai Jamjuree";
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1f2424;
+    color: #c3b89b;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
