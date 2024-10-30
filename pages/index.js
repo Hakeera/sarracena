@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Image from 'next/image';
+import Header from '../components/Header';  // Importando o componente Header
 
 let currentIndex = 0;
 
@@ -31,28 +32,12 @@ export default function Home() {
 
     return (
         <div>
-            <header>
-                <div className="header-content">
-                    <div className="logo">
-                        <Image src="/midias/Logo_Bege.png" alt="Logo Sarracena" width={150} height={150} />
-                    </div>
-                    <div className="divider"></div>
-                    <nav>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#produtos">Produtos</a></li>
-                            <li><a href="#clientes">Clientes</a></li>
-                            <li><a href="#sobre">Sobre</a></li>
-                            <li><a href="#contato">Contato</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
+            <Header /> {/* Usando o componente Header aqui */}
 
             <div className="grid_content">
                 <div className="apresentacao">
                     <div className="descricao">
-                        <h1> u • ni • for • me </h1>
+                        <h1> Uniformes </h1>
                         <p>
                             Símbolo de <strong>Unidade</strong> e <strong>Identidade</strong>.
                         </p>
@@ -77,39 +62,39 @@ export default function Home() {
                         <button className="prev" onClick={() => moveCarousel(-1)}>&#10094;</button>
                         <div className="carousel">
                             <div className="carousel-item">
-                                <a href="produtos.html">
+                                <a href="/produtos">
                                     <div className="product-name">Linha Médica</div>
-                                    <Image src="" alt="Produto 2" width={300} height={200} />
+                                    <Image src="/midias/geral.png" alt="Produto 2" width={300} height={400} />
                                 </a>
                             </div>
                             <div className="carousel-item">
-                                <a href="produtos.html">
+                                <a href="/produtos">
                                     <div className="product-name">Linha Escolar</div>
-                                    <Image src="" alt="Produto 3" width={300} height={200} />
+                                    <Image src="/midias/geral.png" alt="Produto 3" width={300} height={400} />
                                 </a>
                             </div>
                             <div className="carousel-item">
-                                <a href="produtos.html">
+                                <a href="/produtos">
                                     <div className="product-name">Linha Street</div>
-                                    <Image src="/midias/img5.jpg" alt="Produto 4" width={300} height={200} />
+                                    <Image src="/midias/street.jpg" alt="Produto 4" width={300} height={400} />
                                 </a>
                             </div>
                             <div className="carousel-item">
-                                <a href="produtos.html">
+                                <a href="/produtos">
                                     <div className="product-name">Linha Escritório</div>
-                                    <Image src="/midias/img6.jpg" alt="Produto 5" width={300} height={200} />
+                                    <Image src="/midias/escritorio.jpg" alt="Produto 5" width={300} height={400} />
                                 </a>
                             </div>
                             <div className="carousel-item">
-                                <a href="produtos.html">
+                                <a href="/produtos">
                                     <div className="product-name">Linha Cozinha</div>
-                                    <Image src="" alt="Produto 6" width={300} height={200} />
+                                    <Image src="/midias/geral.png" alt="Produto 6" width={300} height={400} />
                                 </a>
                             </div>
                             <div className="carousel-item">
-                                <a href="produtos.html">
+                                <a href="/produtos">
                                     <div className="product-name">Linha Esportiva</div>
-                                    <Image src="" alt="Produto 1" width={300} height={200} />
+                                    <Image src="/midias/geral.png" alt="Produto 1" width={300} height={400} />
                                 </a>
                             </div>
                         </div>
@@ -123,7 +108,7 @@ export default function Home() {
 
                 <div className="contato">
                     <h1>Entre em Contato</h1>
-                    <form className="contact-form" action="mailto:seuemail@empresa.com" method="post" enctype="text/plain">
+                    <form className="contact-form" action="mailto:seuemail@empresa.com" method="post" encType="text/plain">
                         <label htmlFor="nome">Nome:</label>
                         <input type="text" id="nome" name="nome" required />
 
