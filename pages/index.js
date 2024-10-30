@@ -52,7 +52,7 @@ export default function Home() {
                         </p>
                     </div>
                     <div className="imagem">
-                        <Image src="/midias/img1.png" alt="Imagem representativa" width={500} height={400} />
+                        <Image src="/midias/geral.png" alt="Imagem representativa" width={500} height={400} />
                     </div>
                 </div>
 
