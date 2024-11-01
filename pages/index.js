@@ -1,27 +1,30 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react'; 
 import Image from 'next/image';
-import Header from '../components/Header';  // Importando o componente Header
-
-let currentIndex = 0;
-
-function moveCarousel(direction) {
-    const carousel = document.querySelector('.carousel');
-    const items = document.querySelectorAll('.carousel-item');
-    const itemCount = items.length;
-
-    currentIndex += direction;
-
-    if (currentIndex < 0) {
-        currentIndex = itemCount - 3;
-    } else if (currentIndex > itemCount - 3) {
-        currentIndex = 0;
-    }
-
-    const translateX = -(currentIndex * (110 / 3));
-    carousel.style.transform = `translateX(${translateX}%)`;
-}
+import Header from '../components/Header';
+import Contato from '../components/Contato';
 
 export default function Home() {
+    const carouselRef = useRef(null);
+    const currentIndexRef = useRef(0);
+
+    const moveCarousel = (direction) => {
+        const carousel = carouselRef.current;
+        if (!carousel) return; // Adicionando uma verificação para evitar erros
+        const items = carousel.querySelectorAll('.carousel-item');
+        const itemCount = items.length;
+
+        currentIndexRef.current += direction;
+
+        if (currentIndexRef.current < 0) {
+            currentIndexRef.current = itemCount - 3; // Ajuste o número se necessário
+        } else if (currentIndexRef.current > itemCount - 3) {
+            currentIndexRef.current = 0;
+        }
+
+        const translateX = -(currentIndexRef.current * (100 / 3)); // 100 se refere a 100% da largura do carrossel
+        carousel.style.transform = `translateX(${translateX}%)`;
+    };
+
     useEffect(() => {
         const interval = setInterval(() => {
             moveCarousel(1);
@@ -32,24 +35,17 @@ export default function Home() {
 
     return (
         <div>
-            <Header /> {/* Usando o componente Header aqui */}
+            <Header />
 
             <div className="grid_content">
+                {/* Conteúdo da Apresentação */}
                 <div className="apresentacao">
                     <div className="descricao">
                         <h1> Uniformes </h1>
-                        <p>
-                            Símbolo de <strong>Unidade</strong> e <strong>Identidade</strong>.
-                        </p>
-                        <p>
-                            Ao usar um uniforme vestimos uma <strong>História</strong>, um <strong>Propósito</strong>.
-                        </p>
-                        <p>
-                            Um bom uniforme traduz os valores, a disciplina e o compromisso de cada indivíduo com a <strong>Missão</strong> de sua equipe.
-                        </p>
-                        <p>
-                            Nossa <strong>Missão</strong> é criar uniformes que não apenas vestem, mas que deixam uma marca duradoura.
-                        </p>
+                        <p>Símbolo de <strong>Unidade</strong> e <strong>Identidade</strong>.</p>
+                        <p>Ao usar um uniforme vestimos uma <strong>História</strong>, um <strong>Propósito</strong>.</p>
+                        <p>Um bom uniforme traduz os valores, a disciplina e o compromisso de cada indivíduo com a <strong>Missão</strong> de sua equipe.</p>
+                        <p>Nossa <strong>Missão</strong> é criar uniformes que não apenas vestem, mas que deixam uma marca duradoura.</p>
                     </div>
                     <div className="imagem">
                         <Image src="/midias/geral.png" alt="Imagem representativa" width={500} height={400} />
@@ -60,7 +56,7 @@ export default function Home() {
                     <h1>Conheça nossos Produtos</h1>
                     <div className="carousel-container">
                         <button className="prev" onClick={() => moveCarousel(-1)}>&#10094;</button>
-                        <div className="carousel">
+                        <div className="carousel" ref={carouselRef}>
                             <div className="carousel-item">
                                 <a href="/produtos">
                                     <div className="product-name">Linha Médica</div>
@@ -106,28 +102,8 @@ export default function Home() {
                     <h1>Nossos Clientes</h1>
                 </div>
 
-                <div className="contato">
-                    <h1>Entre em Contato</h1>
-                    <form className="contact-form" action="mailto:seuemail@empresa.com" method="post" encType="text/plain">
-                        <label htmlFor="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" required />
-
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" name="email" required />
-
-                        <label htmlFor="descricao">Descrição:</label>
-                        <textarea id="descricao" name="descricao" rows="5" required></textarea>
-
-                        <button type="submit">Enviar</button>
-                    </form>
-
-                    <div className="contact-info" id="contato">
-                        <h2>Contatos</h2>
-                        <p><strong>Telefone:</strong> 16 99626.5295 </p>
-                        <p><strong>Email:</strong> saracenauniformes@gmail.com</p>
-                        <p><strong>Endereço:</strong> Rua Antônio Blanco, 473 - São Carlos, SP</p>
-                    </div>
-                </div>
+                {/* Componente de Contato */}
+                <Contato />
             </div>
 
             <footer>
