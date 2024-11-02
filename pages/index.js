@@ -98,10 +98,6 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="clientes" id="clientes">
-                    <h1>Nossos Clientes</h1>
-                </div>
-
                 {/* Componente de Contato */}
                 <Contato />
             </div>
