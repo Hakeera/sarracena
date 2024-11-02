@@ -53,7 +53,7 @@ export default function Produtos() {
 
                 <div className="produto">
                     <h2>Linha Esportiva</h2>
-                    <Image src="/midias/geral.png" alt="Uniformes Esportivos" width={400} height={500} />
+                    <Image src="/midias/geral.png" alt="Uniformes Esportivos" width={400} height={300} />
                     <p>
                         Ideal para atividades físicas, a Linha Esportiva oferece uniformes com tecidos leves e de secagem rápida.
                         Os uniformes são personalizados de acordo com as modalidades esportivas, e os clientes podem escolher entre
