@@ -9,12 +9,18 @@
     font-weight: 500;
 }
 
+* {
+    box-sizing: border-box;
+    max-width: 100%; /* Garante que nenhum elemento exceda a largura da tela */
+}
+
 html {
     scroll-behavior:smooth;
   }
 
 
 body {
+    overflow-x: hidden; /* Esconde o excesso horizontal */
     background-color: #c3b89b; /* Fundo principal usando a cor #c3b89b */
     font-family: 'Bai Jamjuree', system-ui;
     margin: 0;
@@ -22,13 +28,16 @@ body {
     font-weight: 300; /* Aplica o peso light por padrão */
     color: #1f2424;
 }
+
 header {
+    width: 100%; /* Garante que o header ocupe a largura total */
+    margin: 0 auto; /* Centraliza o header, se necessário */
+    display: flex;
+    flex-direction: row;
     font-family: 'Bai Jamjuree', system-ui;
     font-weight: 800;
-    background-color: #1f2424; /* Fundo escuro para o cabeçalho */
-    border-bottom: 1px solid #697548; /* Linha de divisão com a cor #697548 */
-    width: 100%;
-    position: relative;
+    background-color: #1f2424;
+    border-bottom: 1px solid #697548;
 }
 
 .header-content {
@@ -126,6 +135,8 @@ nav ul li a:hover {
     border-radius: 5px;
     margin: 0 auto;
     display: block;
+    max-width: 100%; /* Faz com que as imagens respeitem a largura da viewport */
+    height: auto; /* Mantém a proporção */
 }
 
 .linhas_prod {
@@ -283,4 +294,174 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+/* Media Queries Responsivo */
+@media screen and (max-width: 1024px) {
+    header {
+        flex-direction: column; /* Torna os elementos do cabeçalho empilhados */
+    }
+
+    .header-content {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    nav ul {
+        display: none;
+    }
+    .divider {
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 100%;
+        padding: 10px 0;
+        background-color: #1f2424; /* Fundo para destacar o menu */
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 0;
+        font-size: 20px;
+    }
+
+    .logo img {
+        width: 180px; /* Ajuste para telas menores */
+    }
+
+    .header-content {
+        gap: 10px;
+    }
+    /* Apresentação */
+    .apresentacao {
+        display: flex;
+        flex-direction: column; /* Alinha os elementos verticalmente */
+        align-items: center; /* Centraliza os elementos */
+        gap: 20px; /* Espaçamento entre as divs */
+        grid-column: 1 / -1; /* Ocupa toda a largura */
+        grid-row: auto; /* Ajusta dinamicamente as linhas */
+    }
+
+    .descricao {
+        grid-column: 1 / -1; /* Garante que a descrição ocupe toda a largura */
+        padding: 20px; /* Reduz o padding para telas menores */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .descricao h1 {
+        font-size: 24px; /* Reduz tamanho da fonte para caber em telas menores */
+        margin-bottom: 10px;
+    }
+
+    .descricao p {
+        font-size: 16px; /* Ajusta o tamanho do texto */
+    }
+
+    .imagem {
+        grid-column: 1 / -1; /* Garante que a imagem ocupe toda a largura */
+        padding: 10px; /* Reduz padding ao redor */
+        text-align: center; /* Centraliza a imagem */
+    }
+
+    .imagem img {
+        max-width: 100%; /* Faz a imagem ocupar a largura total da tela */
+        height: auto; /* Mantém a proporção */
+        border-radius: 5px; /* Preserva bordas arredondadas */
+    }
+
+    .carousel-container {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        order: 1; /* Garante que venha antes da seção de contato */
+    }
+
+    /* Ajusta o carrossel para exibir um item por vez */
+    .carousel-item {
+        min-width: 100%; /* Cada item ocupa toda a largura */
+        padding: 10px; /* Mantém espaçamento interno */
+    }
+
+    .carousel {
+        transition: transform 0.5s ease-in-out; /* Mantém animação */
+    }
+
+    .carousel-item img {
+        width: 100%; /* A imagem ocupa toda a largura do item */
+        aspect-ratio: 1 / 1; /* Mantém proporção quadrada */
+        object-fit: cover; /* Ajusta o corte da imagem sem distorcer */
+    }
+    /* Seção de Contato */
+    .contato {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        order:2
+    }
+
+    .contato h1 {
+        grid-column: 1 / -1; /* Centraliza o título */
+        font-size: 24px; /* Reduz o tamanho da fonte */
+    }
+
+    .contact-form {
+        grid-column: 1 / -1; /* Garante que o formulário ocupe toda a largura */
+        padding: 15px; /* Reduz padding */
+        gap: 10px; /* Menor espaçamento entre os campos */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px; /* Ajusta a fonte para telas menores */
+    }
+
+    .contact-form button {
+        font-size: 14px; /* Ajusta tamanho do botão */
+        padding: 10px; /* Reduz o padding do botão */
+    }
+
+    .contact-info {
+        grid-column: 1 / -1; /* Centraliza as informações de contato */
+        text-align: center;
+        padding: 10px; /* Adiciona padding para separar conteúdo */
+    }
+
+    .contact-info h2 {
+        font-size: 20px; /* Ajusta tamanho da fonte */
+    }
+
+    .contact-info p {
+        font-size: 14px; /* Ajusta tamanho do texto */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+
+    nav ul {
+        gap: 10px; /* Reduz o espaço entre os itens */
+    }
+
+    nav ul li a {
+        font-size: 18px; /* Ajusta o tamanho do texto */
+    }
+
+    .logo img {
+        width: 150px; /* Ajusta ainda mais a logo */
+    }
 }
