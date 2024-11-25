@@ -27,7 +27,14 @@ export default async function handler(req, res) {
         to: 'leo.a.petrilli@gmail.com',
         replyTo: email, // permite responder ao e-mail do usuário
         subject: `Novo contato de ${nome}`,
-        text: descricao,
+        text: `Você recebeu um novo contato:\n\nNome: ${nome}\nEmail: ${email}\nMensagem: ${descricao}`,
+        // Caso prefira uma mensagem formatada com HTML:
+        html: `
+            <p>Você recebeu um novo contato:</p>
+            <p><strong>Nome:</strong> ${nome}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Mensagem:</strong> ${descricao}</p>
+        `,
     };
 
     try {
