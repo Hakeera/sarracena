@@ -287,6 +287,22 @@ button:hover {
     font-size: 16px;
 }
 
+.prod_container {
+    grid-column: 1 / -1; /* Faz com que a div ocupe todas as 10 colunas da grid_content */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Divide o espaço interno em duas colunas */
+    gap: 10px; /* Espaçamento entre os itens */
+    justify-items: center; /* Centraliza os itens dentro das células */
+    align-items: center; /* Centraliza verticalmente os itens */
+    width: 100%; /* Garante que ocupe toda a largura disponível */
+    box-sizing: border-box; /* Inclui as bordas no cálculo da largura */
+}
+
+.produtos {
+    padding: 10px;
+}
+
+
 footer {
     text-align: center;
     padding: 20px;
@@ -417,6 +433,13 @@ footer {
     }
     .divider {
         display: none;
+    }
+    .prod_container {
+        grid-column: 1 / -1; /* Garante que a div ocupe toda a largura da grid */
+        text-align: center;
+        padding: 10px; /* Adiciona padding para separar conteúdo */
+        grid-template-columns: 1fr; /* Exibe uma única coluna */
+        gap: 10px; /* Espaçamento entre os itens */
     }
     
 }
@@ -556,6 +579,13 @@ footer {
         font-size: 14px; /* Ajusta tamanho do texto */
     }
     
+    .prod_container {
+        grid-column: 1 / -1; /* Garante que a div ocupe toda a largura da grid */
+        text-align: center;
+        padding: 10px; /* Adiciona padding para separar conteúdo */
+        grid-template-columns: 1fr; /* Exibe uma única coluna */
+        gap: 10px; /* Espaçamento entre os itens */
+    }
 }
 
 @media screen and (max-width: 480px) {
