@@ -6,48 +6,85 @@ import Contato from '../components/Contato';
 export default function Home() {
     const carouselRef = useRef(null);
     const currentIndexRef = useRef(0);
-    
+    const startXRef = useRef(0);
+    const endXRef = useRef(0);
+
     const moveCarousel = (direction) => {
         const carousel = carouselRef.current;
-        if (!carousel) return; // Evita erros caso o carrossel não esteja montado
-    
+        if (!carousel) return;
+
         const items = carousel.querySelectorAll('.carousel-item');
         const itemCount = items.length;
-        const isSmallScreen = window.innerWidth <= 768; // Define o limite para telas pequenas
-    
+        const isSmallScreen = window.innerWidth <= 768;
+
         currentIndexRef.current += direction;
-    
+
         // Ajusta o índice baseado na direção
         if (currentIndexRef.current < 0) {
-            currentIndexRef.current = itemCount - 1; // Vai para o último item
+            currentIndexRef.current = itemCount - 1;
         } else if (currentIndexRef.current >= itemCount) {
-            currentIndexRef.current = 0; // Volta para o primeiro item
+            currentIndexRef.current = 0;
         }
-    
+
         // Calcula o deslocamento
         const translateX = isSmallScreen
-            ? -(currentIndexRef.current * 100) // Move 100% para exibir uma imagem por vez
-            : -(currentIndexRef.current * (100 / 3)); // Move para exibir 3 imagens em telas maiores
-    
+            ? -(currentIndexRef.current * 100) // Exibe uma imagem por vez em telas pequenas
+            : -(currentIndexRef.current * (100 / 3)); // Exibe 3 imagens em telas maiores
+
         // Aplica o deslocamento ao carrossel
         carousel.style.transform = `translateX(${translateX}%)`;
     };
-    
+
+    // Lida com eventos de swipe
+    const handleTouchStart = (e) => {
+        startXRef.current = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+        endXRef.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+        const deltaX = endXRef.current - startXRef.current;
+        if (Math.abs(deltaX) > 50) { // Define um limite mínimo para considerar como swipe
+            if (deltaX > 0) {
+                moveCarousel(-1); // Swipe para a direita
+            } else {
+                moveCarousel(1); // Swipe para a esquerda
+            }
+        }
+    };
+
     // Adiciona um evento para recalcular ao redimensionar a tela
     useEffect(() => {
         const handleResize = () => {
             moveCarousel(0); // Reajusta o carrossel ao redimensionar
         };
-    
+
+        const carousel = carouselRef.current;
+        if (carousel) {
+            // Adiciona os eventos de toque
+            carousel.addEventListener('touchstart', handleTouchStart);
+            carousel.addEventListener('touchmove', handleTouchMove);
+            carousel.addEventListener('touchend', handleTouchEnd);
+        }
+
         window.addEventListener('resize', handleResize);
-    
+
         const interval = setInterval(() => {
-            moveCarousel(1);
+            moveCarousel(1); // Avança automaticamente
         }, 10000);
-    
+
         return () => {
             clearInterval(interval);
             window.removeEventListener('resize', handleResize);
+
+            if (carousel) {
+                // Remove os eventos de toque
+                carousel.removeEventListener('touchstart', handleTouchStart);
+                carousel.removeEventListener('touchmove', handleTouchMove);
+                carousel.removeEventListener('touchend', handleTouchEnd);
+            }
         };
     }, []);
 
