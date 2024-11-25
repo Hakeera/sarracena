@@ -11,7 +11,7 @@
 
 * {
     box-sizing: border-box;
-    max-width: 100%; /* Garante que nenhum elemento exceda a largura da tela */
+    max-width: 100%;
 }
 
 html {
@@ -140,19 +140,20 @@ nav ul li a:hover {
 }
 
 .linhas_prod {
-    grid-column: 2 / 10 ;
+    grid-column: 2 / 10;
     grid-row: 6 / 11;
+    display: flex; /* Altera para Flexbox */
+    flex-direction: column; /* Organiza o conteúdo verticalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza texto */
 }
 
 .clientes {
     grid-column: 2 / 10;
     grid-row: 11 / 16;
-    border: 1px solid red;
+    
     display: grid;  
-}
-
-.linhas_prod {
-    text-align: center;
 }
 
 .carousel-container {
@@ -223,7 +224,7 @@ button:hover {
 }
 
 .contato {
-    grid-column: 2 / 10;
+    grid-column: 3 / 10;
     grid-row: 16 / 21;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -316,6 +317,110 @@ footer {
     
 }
 
+@media (max-width: 768px) {
+    .carousel-item {
+        min-width: 100%;
+    }
+
+    .linhas_prod{
+        grid-column: 2 / 10;
+        grid-row: 2;
+    }
+    
+    .contato {
+        grid-column: 2 / 10;
+        grid-row: 3;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contato h1 {
+        grid-column: 1 / 3;
+        text-align: center;
+    }
+
+    .contact-form {
+        grid-column: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        gap: 15px;
+    }
+
+    .contact-form label {
+        font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .contact-form button {
+        background-color: #697548;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+        background-color: #556436;
+    }
+
+    .contact-info {
+        justify-content: center;
+        grid-column: 2;
+        text-align: center;
+    }
+
+    .contact-info h2 {
+        margin-bottom: 10px;
+    }
+
+    .contact-info p {
+        font-family: "Bai Jamjuree";
+        margin: 5px 0;
+        font-size: 16px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #1f2424;
+        color: #c3b89b;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+}
+/* Media Queries Responsivo */
+@media screen and (max-width: 1024px) {
+    header {
+        flex-direction: column; /* Torna os elementos do cabeçalho empilhados */
+    }
+
+    .header-content {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    nav ul {
+        display: none;
+    }
+    .divider {
+        display: none;
+    }
+    
+}
+
 @media screen and (max-width: 768px) {
     nav ul {
         width: 100%;
@@ -332,6 +437,11 @@ footer {
         display: block;
         padding: 10px 0;
         font-size: 20px;
+    }
+
+    .grid_content {
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(3, 1fr); 
     }
 
     .logo img {
@@ -383,7 +493,6 @@ footer {
         grid-row: 2;
         display: flex;
         flex-direction: column;
-        order: 1; /* Garante que venha antes da seção de contato */
     }
 
     /* Ajusta o carrossel para exibir um item por vez */
@@ -404,7 +513,7 @@ footer {
     /* Seção de Contato */
     .contato {
         grid-column: 1 / -1;
-        grid-row: auto;
+        grid-row: 3;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -446,22 +555,124 @@ footer {
     .contact-info p {
         font-size: 14px; /* Ajusta tamanho do texto */
     }
+    
 }
 
 @media screen and (max-width: 480px) {
-    body {
-        font-size: 14px; /* Reduz o tamanho da fonte */
+    nav ul {
+        width: 100%;
+        padding: 8px 0;
+        background-color: #1f2424;
     }
 
-    nav ul {
-        gap: 10px; /* Reduz o espaço entre os itens */
+    nav ul li {
+        width: 100%;
+        text-align: center;
     }
 
     nav ul li a {
-        font-size: 18px; /* Ajusta o tamanho do texto */
+        display: block;
+        padding: 8px 0;
+        font-size: 18px;
+    }
+
+    .grid_content {
+        grid-template-columns: repeat(6, 1fr); /* Reduz o número de colunas */
+        grid-template-rows: repeat(4, auto); /* Mais flexibilidade para linhas */
     }
 
     .logo img {
-        width: 150px; /* Ajusta ainda mais a logo */
+        width: 140px; /* Ajuste ainda menor para logotipo */
+    }
+
+    .header-content {
+        gap: 8px;
+    }
+
+    /* Apresentação */
+    .apresentacao {
+        gap: 15px;
+    }
+
+    .descricao {
+        padding: 15px;
+    }
+
+    .descricao h1 {
+        font-size: 20px;
+    }
+
+    .descricao p {
+        font-size: 14px;
+    }
+
+    .imagem {
+        padding: 8px;
+    }
+
+    .imagem img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .linhas_prod {
+        grid-column: 1 / -1; /* Ocupa a largura inteira no layout responsivo */
+        grid-row: auto; /* Ajuste automático */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .carousel-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .carousel-item {
+        padding: 8px;
+    }
+
+    .carousel-item img {
+        aspect-ratio: 1 / 1;
+    }
+
+    /* Contato */
+    .contato {
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .contato h1 {
+        font-size: 20px;
+    }
+
+    .contact-form {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 12px;
+    }
+
+    .contact-form button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .contact-info {
+        padding: 8px;
+    }
+
+    .contact-info h2 {
+        font-size: 18px;
+    }
+
+    .contact-info p {
+        font-size: 12px;
     }
 }

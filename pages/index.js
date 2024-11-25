@@ -6,31 +6,49 @@ import Contato from '../components/Contato';
 export default function Home() {
     const carouselRef = useRef(null);
     const currentIndexRef = useRef(0);
-
+    
     const moveCarousel = (direction) => {
         const carousel = carouselRef.current;
-        if (!carousel) return; // Adicionando uma verificação para evitar erros
+        if (!carousel) return; // Evita erros caso o carrossel não esteja montado
+    
         const items = carousel.querySelectorAll('.carousel-item');
         const itemCount = items.length;
-
+        const isSmallScreen = window.innerWidth <= 768; // Define o limite para telas pequenas
+    
         currentIndexRef.current += direction;
-
+    
+        // Ajusta o índice baseado na direção
         if (currentIndexRef.current < 0) {
-            currentIndexRef.current = itemCount - 3; // Ajuste o número se necessário
-        } else if (currentIndexRef.current > itemCount - 3) {
-            currentIndexRef.current = 0;
+            currentIndexRef.current = itemCount - 1; // Vai para o último item
+        } else if (currentIndexRef.current >= itemCount) {
+            currentIndexRef.current = 0; // Volta para o primeiro item
         }
-
-        const translateX = -(currentIndexRef.current * (100 / 3)); // 100 se refere a 100% da largura do carrossel
+    
+        // Calcula o deslocamento
+        const translateX = isSmallScreen
+            ? -(currentIndexRef.current * 100) // Move 100% para exibir uma imagem por vez
+            : -(currentIndexRef.current * (100 / 3)); // Move para exibir 3 imagens em telas maiores
+    
+        // Aplica o deslocamento ao carrossel
         carousel.style.transform = `translateX(${translateX}%)`;
     };
-
+    
+    // Adiciona um evento para recalcular ao redimensionar a tela
     useEffect(() => {
+        const handleResize = () => {
+            moveCarousel(0); // Reajusta o carrossel ao redimensionar
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
         const interval = setInterval(() => {
             moveCarousel(1);
         }, 10000);
-
-        return () => clearInterval(interval);
+    
+        return () => {
+            clearInterval(interval);
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     return (
