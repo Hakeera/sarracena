@@ -10,7 +10,12 @@ export default function Produtos() {
                 <div className='prod_container'>
                     <div className="produto">
                         <h2>Linha Escolar</h2>
-                        <Image src="/midias/geral.png" alt="Uniformes Escolares" width={400} height={300} />
+                        <Image 
+                            src="/midias/geral.png" 
+                            alt="Conjunto de uniforme escolar com camiseta, calça e casaco para estudantes" 
+                            width={400} 
+                            height={300} 
+                        />
                         <p>
                             Nossa Linha Escolar é projetada para refletir a identidade e os valores das instituições de ensino.
                             Personalizamos uniformes que vão desde o tradicional até o moderno, sempre priorizando conforto e
@@ -21,7 +26,12 @@ export default function Produtos() {
 
                     <div className="produto">
                         <h2>Linha Escritório</h2>
-                        <Image src="/midias/escritorio.jpg" alt="Uniformes para Escritório" width={400} height={500} />
+                        <Image 
+                            src="/midias/escritorio.jpg" 
+                            alt="Uniforme social para escritório com camisa branca e calça social" 
+                            width={400} 
+                            height={500} 
+                        />
                         <p>
                             A Linha Escritório oferece elegância e funcionalidade. Para ambientes corporativos, confeccionamos peças com
                             cortes refinados e tecidos de alta qualidade que promovem conforto durante a rotina de trabalho.
@@ -32,7 +42,12 @@ export default function Produtos() {
 
                     <div className="produto">
                         <h2>Linha Médica</h2>
-                        <Image src="/midias/geral.png" alt="Uniformes Médicos" width={400} height={300} />
+                        <Image 
+                            src="/midias/geral.png" 
+                            alt="Jaleco da área médica com bolsos e gola tradicional" 
+                            width={400} 
+                            height={300} 
+                        />
                         <p>
                             Desenvolvida para profissionais da saúde, a Linha Médica preza pela segurança e pelo conforto. Nossos
                             uniformes são feitos com tecidos antimicrobianos e de fácil limpeza, atendendo às exigências dos clientes que buscam
@@ -43,7 +58,12 @@ export default function Produtos() {
 
                     <div className="produto">
                         <h2>Linha Cozinha</h2>
-                        <Image src="/midias/geral.png" alt="Uniformes para Cozinha" width={400} height={300} />
+                        <Image 
+                            src="/midias/geral.png" 
+                            alt="Uniforme de cozinha com dólmã e avental para chef" 
+                            width={400} 
+                            height={300} 
+                        />
                         <p>
                             Nossa Linha Cozinha é pensada para atender os profissionais do ramo gastronômico. Com tecidos resistentes ao calor
                             e respiráveis, oferecemos peças que combinam conforto e durabilidade. Os clientes podem optar por aventais, dólmãs
@@ -54,7 +74,12 @@ export default function Produtos() {
 
                     <div className="produto">
                         <h2>Linha Esportiva</h2>
-                        <Image src="/midias/geral.png" alt="Uniformes Esportivos" width={400} height={300} />
+                        <Image 
+                            src="/midias/geral.png" 
+                            alt="Uniforme esportivo com camiseta dry fit e bermuda para atletas" 
+                            width={400} 
+                            height={300} 
+                        />
                         <p>
                             Ideal para atividades físicas, a Linha Esportiva oferece uniformes com tecidos leves e de secagem rápida.
                             Os uniformes são personalizados de acordo com as modalidades esportivas, e os clientes podem escolher entre
@@ -64,7 +89,12 @@ export default function Produtos() {
 
                     <div className="produto">
                         <h2>Linha Produção</h2>
-                        <Image src="/midias/street.jpg" alt="Uniformes para Produção" width={400} height={500} />
+                        <Image 
+                            src="/midias/street.jpg" 
+                            alt="Uniforme industrial com camisa de alta resistência e calça com reforços" 
+                            width={400} 
+                            height={500} 
+                        />
                         <p>
                             A Linha Produção atende a indústrias e empresas que necessitam de uniformes duráveis e funcionais EPI. Confeccionamos
                             peças resistentes para suportar ambientes de trabalho exigentes, oferecendo opções com reforço em áreas de
@@ -75,7 +105,12 @@ export default function Produtos() {
 
                     <div className="produto">
                         <h2>Linha Básica</h2>
-                        <Image src="/midias/geral.png" alt="Uniformes Básicos" width={400} height={300} />
+                        <Image 
+                            src="/midias/geral.png" 
+                            alt="Camiseta básica personalizada com logotipo da empresa" 
+                            width={400} 
+                            height={300} 
+                        />
                         <p>
                             Nossa Linha Básica é ideal para quem busca simplicidade e eficiência. Com camisetas e blusas de modelagem predefinida, 
                             essa linha permite apenas a personalização com a logo da empresa, sem outras customizações. A proposta é oferecer produtos acessíveis 
@@ -84,14 +119,17 @@ export default function Produtos() {
                     </div>
                 </div>
             </div>
+
             {/* Seção de contato */}
             <div className="contact-section">
                 <p>
                     Para mais informações ou para realizar orçamentos e pedidos, <a href="/#contato">entre em contato conosco</a>! 
                 </p>
             </div>
+
             <footer>
                 <p>&copy; 2024 Sarracena. Todos os direitos reservados.</p>
+                <p>Atendimento em São Carlos - SP, região e todo o Brasil.</p>
             </footer>
 
             <style jsx>{`

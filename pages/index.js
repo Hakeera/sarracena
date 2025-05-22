@@ -2,6 +2,9 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Header from '../components/Header';
 import Contato from '../components/Contato';
+import Head from 'next/head';
+import SchemaMarkup from '../components/SchemaMarkup';
+
 
 export default function Home() {
     const carouselRef = useRef(null);
@@ -89,77 +92,97 @@ export default function Home() {
     }, []);
 
     return (
-        <div>
-            <Header />
 
-            <div className="grid_content">
-                {/* Conteúdo da Apresentação */}
-                <div className="apresentacao">
-                    <div className="descricao">
-                        <h1> Uniformes </h1>
-                        <p>Símbolo de <strong>Unidade</strong> e <strong>Identidade</strong>.</p>
-                        <p>Ao usar um uniforme vestimos uma <strong>História</strong>, um <strong>Propósito</strong>.</p>
-                        <p>Um bom uniforme traduz os valores, a disciplina e o compromisso de cada indivíduo com a <strong>Missão</strong> de sua equipe.</p>
-                        <p>Nossa <strong>Missão</strong> é criar uniformes que não apenas vestem, mas que deixam uma marca duradoura.</p>
-                    </div>
-                    <div className="imagem">
-                        <Image src="/midias/geral.png" alt="Imagem representativa" width={500} height={400} />
-                    </div>
-                </div>
+        <>
+            
+            <Head>
+                <title>Sarracena Uniformes Personalizados | Profissionais, Escolares e EPIs</title>
+                <meta name="description" content="Uniformes profissionais, escolares, médicos, esportivos e mais. Atendimento em São Carlos, região e todo o Brasil. Solicite um orçamento!" />
+                <meta name="keywords" content="uniformes São Carlos, uniformes profissionais, uniformes personalizados, jaleco, uniforme médico, camiseta personalizada, uniforme escolar, uniforme empresa" />
+                <meta name="robots" content="index, follow" />
+                <meta property="og:title" content="Uniformes em São Carlos | Sarracena Uniformes" />
+                <meta property="og:description" content="Especializada em uniformes profissionais e personalizados. Atendemos São Carlos e todo o Brasil." />
+                <meta property="og:image" content="/midias/geral.png" />
+                <meta property="og:url" content="https://www.sarracenauniformes.com.br/" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
+            
+            <SchemaMarkup />
+            
+            <div>
+                <Header />
 
-                <div className="linhas_prod" id="produtos">
-                    <h1>Conheça nossos Produtos</h1>
-                    <div className="carousel-container">
-                        <button className="prev" onClick={() => moveCarousel(-1)}>&#10094;</button>
-                        <div className="carousel" ref={carouselRef}>
-                            <div className="carousel-item">
-                                <a href="/produtos">
-                                    <div className="product-name">Linha Médica</div>
-                                    <Image src="/midias/geral.png" alt="Produto 2" width={300} height={400} />
-                                </a>
-                            </div>
-                            <div className="carousel-item">
-                                <a href="/produtos">
-                                    <div className="product-name">Linha Escolar</div>
-                                    <Image src="/midias/geral.png" alt="Produto 3" width={300} height={400} />
-                                </a>
-                            </div>
-                            <div className="carousel-item">
-                                <a href="/produtos">
-                                    <div className="product-name">Linha Street</div>
-                                    <Image src="/midias/street.jpg" alt="Produto 4" width={300} height={400} />
-                                </a>
-                            </div>
-                            <div className="carousel-item">
-                                <a href="/produtos">
-                                    <div className="product-name">Linha Escritório</div>
-                                    <Image src="/midias/escritorio.jpg" alt="Produto 5" width={300} height={400} />
-                                </a>
-                            </div>
-                            <div className="carousel-item">
-                                <a href="/produtos">
-                                    <div className="product-name">Linha Cozinha</div>
-                                    <Image src="/midias/geral.png" alt="Produto 6" width={300} height={400} />
-                                </a>
-                            </div>
-                            <div className="carousel-item">
-                                <a href="/produtos">
-                                    <div className="product-name">Linha Esportiva</div>
-                                    <Image src="/midias/geral.png" alt="Produto 1" width={300} height={400} />
-                                </a>
-                            </div>
+                <div className="grid_content">
+                    {/* Conteúdo da Apresentação */}
+                    <div className="apresentacao">
+                        <div className="descricao">
+                            <h1> Uniformes </h1>
+                            <p>Símbolo de <strong>Unidade</strong> e <strong>Identidade</strong>.</p>
+                            <p>Ao usar um uniforme vestimos uma <strong>História</strong>, um <strong>Propósito</strong>.</p>
+                            <p>Um bom uniforme traduz os valores, a disciplina e o compromisso de cada indivíduo com a <strong>Missão</strong> de sua equipe.</p>
+                            <p>Nossa <strong>Missão</strong> é criar uniformes que não apenas vestem, mas que deixam uma marca duradoura.</p>
                         </div>
-                        <button className="next" onClick={() => moveCarousel(1)}>&#10095;</button>
+                        <div className="imagem">
+                            <Image src="/midias/geral.png" alt="Uniformes em São Carlos" width={500} height={400} />
+                        </div>
                     </div>
+
+                    <div className="linhas_prod" id="produtos">
+                        <h1>Conheça nossos Produtos</h1>
+                        <div className="carousel-container">
+                            <button className="prev" onClick={() => moveCarousel(-1)}>&#10094;</button>
+                            <div className="carousel" ref={carouselRef}>
+                                <div className="carousel-item">
+                                    <a href="/produtos">
+                                        <div className="product-name">Linha Médica</div>
+                                        <Image src="/midias/geral.png" alt="Jaleco branco com detalhes da linha médica" width={300} height={400} />
+                                    </a>
+                                </div>
+                                <div className="carousel-item">
+                                    <a href="/produtos">
+                                        <div className="product-name">Linha Escolar</div>
+                                        <Image src="/midias/geral.png" alt="Uniforme escolar com camiseta e bermuda para crianças" width={300} height={400} />
+                                    </a>
+                                </div>
+                                <div className="carousel-item">
+                                    <a href="/produtos">
+                                        <div className="product-name">Linha Street</div>
+                                        <Image src="/midias/street.jpg" alt="Conjunto moderno da linha street com estilo casual" width={300} height={400} />
+                                    </a>
+                                </div>
+                                <div className="carousel-item">
+                                    <a href="/produtos">
+                                        <div className="product-name">Linha Escritório</div>
+                                        <Image src="/midias/escritorio.jpg" alt="Uniforme social para escritório com camisa e calça" width={300} height={400} />
+                                    </a>
+                                </div>
+                                <div className="carousel-item">
+                                    <a href="/produtos">
+                                        <div className="product-name">Linha Cozinha</div>
+                                        <Image src="/midias/geral.png" alt="Roupa de chef da linha cozinha com avental e touca" width={300} height={400} />
+                                    </a>
+                                </div>
+                                <div className="carousel-item">
+                                    <a href="/produtos">
+                                        <div className="product-name">Linha Esportiva</div>
+                                        <Image src="/midias/geral.png" alt="Uniforme esportivo com camiseta dry fit e bermuda da linha esportiva" width={300} height={400} />
+                                    </a>
+                                </div>
+                            </div>
+                            <button className="next" onClick={() => moveCarousel(1)}>&#10095;</button>
+                        </div>
+                    </div>
+
+                    {/* Componente de Contato */}
+                    <Contato />
                 </div>
 
-                {/* Componente de Contato */}
-                <Contato />
-            </div>
+                <footer>
+                    <p>&copy; 2024 Sarracena. Todos os direitos reservados.</p>
+                    <p>Atendimento em São Carlos - SP, região e todo o Brasil.</p>
+                </footer>
 
-            <footer>
-                <p>&copy; 2024 Sarracena. Todos os direitos reservados.</p>
-            </footer>
-        </div>
+            </div>
+    </>
     );
 }
