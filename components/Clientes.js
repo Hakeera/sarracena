@@ -5,6 +5,7 @@ export default function Clientes() {
     const logos = [
         { src: '/midias/logo_LaSalle.png', alt: 'Cliente 1' },
         { src: '/midias/logo_Latam.png', alt: 'Cliente 2' },
+        { src: '/midias/logo_cecilia.png', alt: 'Cliente 3' },
     ];
 
     return (
