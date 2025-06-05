@@ -151,8 +151,7 @@ nav ul li a:hover {
 
 .clientes {
     grid-column: 2 / 10;
-    grid-row: 11 / 16;
-    
+    grid-row: 10 / 14;
     display: grid;  
 }
 
@@ -192,6 +191,65 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
+/* Seção de Clientes */
+.clientes-section{
+    grid-column: 2 / 10;
+    grid-row: 11 / 16;
+    padding: 3rem 1rem;
+    text-align: center;
+    background-color: transparent; /* ou mantenha a cor de fundo que preferir */
+}
+
+.clientes h1 {
+    font-family: 'Bai Jamjuree', system-ui;
+    font-weight: 900;
+    color: #1f2424;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.clientes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cliente-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    height: 100px; /* Altura fixa para uniformidade */
+}
+
+.cliente-logo:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.cliente-logo img {
+    max-width: 100%;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.cliente-logo img:hover {
+    filter: grayscale(0%);
+}
+
 button.prev, button.next {
     position: absolute;
     top: 50%;
@@ -225,7 +283,7 @@ button:hover {
 
 .contato {
     grid-column: 3 / 10;
-    grid-row: 16 / 21;
+    grid-row: 15 / 21;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
@@ -441,7 +499,50 @@ footer {
         grid-template-columns: 1fr; /* Exibe uma única coluna */
         gap: 10px; /* Espaçamento entre os itens */
     }
+       .clientes {
+        grid-column: 1 / -1;
+        padding: 2rem 1rem;
+    }
     
+    .clientes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .cliente-logo {
+        height: 80px;
+    }
+    
+    .cliente-logo img {
+        max-height: 60px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .clientes {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        padding: 1.5rem 1rem;
+    }
+    
+    .clientes-section h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .clientes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+    
+    .cliente-logo {
+        height: 70px;
+        padding: 0.5rem;
+    }
+    
+    .cliente-logo img {
+        max-height: 50px;
+    } 
 }
 
 @media screen and (max-width: 768px) {
@@ -450,27 +551,22 @@ footer {
         padding: 10px 0;
         background-color: #1f2424; /* Fundo para destacar o menu */
     }
-
     nav ul li {
         width: 100%;
         text-align: center;
     }
-
     nav ul li a {
         display: block;
         padding: 10px 0;
         font-size: 20px;
     }
-
     .grid_content {
         grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: repeat(3, 1fr); 
+        grid-template-rows: repeat(4, auto); /* Aumentei para 4 linhas para acomodar todas as seções */
     }
-
     .logo img {
         width: 180px; /* Ajuste para telas menores */
     }
-
     .header-content {
         gap: 10px;
     }
@@ -481,100 +577,139 @@ footer {
         align-items: center; /* Centraliza os elementos */
         gap: 20px; /* Espaçamento entre as divs */
         grid-column: 1 / -1; /* Ocupa toda a largura */
-        grid-row: auto; /* Ajusta dinamicamente as linhas */
+        grid-row: 1; /* Primeira linha */
+        order: 1;
     }
-
     .descricao {
         grid-column: 1 / -1; /* Garante que a descrição ocupe toda a largura */
         padding: 20px; /* Reduz o padding para telas menores */
         text-align: center; /* Centraliza o texto */
     }
-
     .descricao h1 {
         font-size: 24px; /* Reduz tamanho da fonte para caber em telas menores */
         margin-bottom: 10px;
     }
-
     .descricao p {
         font-size: 16px; /* Ajusta o tamanho do texto */
     }
-
     .imagem {
         grid-column: 1 / -1; /* Garante que a imagem ocupe toda a largura */
         padding: 10px; /* Reduz padding ao redor */
         text-align: center; /* Centraliza a imagem */
     }
-
     .imagem img {
         max-width: 100%; /* Faz a imagem ocupar a largura total da tela */
         height: auto; /* Mantém a proporção */
         border-radius: 5px; /* Preserva bordas arredondadas */
     }
-
     .carousel-container {
         grid-column: 1 / -1;
-        grid-row: 2;
+        grid-row: 2; /* Segunda linha */
         display: flex;
         flex-direction: column;
+        order: 2;
     }
-
     /* Ajusta o carrossel para exibir um item por vez */
     .carousel-item {
         min-width: 100%; /* Cada item ocupa toda a largura */
         padding: 10px; /* Mantém espaçamento interno */
     }
-
     .carousel {
         transition: transform 0.5s ease-in-out; /* Mantém animação */
     }
-
     .carousel-item img {
         width: 100%; /* A imagem ocupa toda a largura do item */
         aspect-ratio: 1 / 1; /* Mantém proporção quadrada */
         object-fit: cover; /* Ajusta o corte da imagem sem distorcer */
     }
-    /* Seção de Contato */
+    
+    /* Seção de Clientes - DEVE VIR ANTES DO CONTATO */
+    .clientes-section {
+        grid-column: 1 / -1;
+        grid-row: 3; /* Terceira linha - ANTES do contato */
+        padding: 1.5rem 1rem;
+        text-align: center;
+        order: 3; /* Ordem 3 - antes do contato */
+    }
+    
+    .clientes h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #1f2424;
+        font-family: 'Bai Jamjuree', system-ui;
+        font-weight: 900;
+    }
+    
+    .clientes-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas em tablet */
+        gap: 1rem;
+        align-items: center;
+        justify-items: center;
+    }
+    
+    .cliente-logo {
+        height: 70px;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .cliente-logo:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-5px);
+    }
+    
+    .cliente-logo img {
+        max-height: 50px;
+        max-width: 100%;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+    }
+    
+    .cliente-logo img:hover {
+        filter: grayscale(0%);
+    }
+    
+    /* Seção de Contato - DEVE VIR DEPOIS DOS CLIENTES */
     .contato {
         grid-column: 1 / -1;
-        grid-row: 3;
+        grid-row: 4; /* Quarta linha - DEPOIS dos clientes */
         display: flex;
         flex-direction: column;
         gap: 20px;
         padding: 20px;
-        order:2
+        order: 4; /* Ordem 4 - depois dos clientes */
     }
-
     .contato h1 {
         grid-column: 1 / -1; /* Centraliza o título */
         font-size: 24px; /* Reduz o tamanho da fonte */
     }
-
     .contact-form {
         grid-column: 1 / -1; /* Garante que o formulário ocupe toda a largura */
         padding: 15px; /* Reduz padding */
         gap: 10px; /* Menor espaçamento entre os campos */
     }
-
     .contact-form input,
     .contact-form textarea {
         font-size: 14px; /* Ajusta a fonte para telas menores */
     }
-
     .contact-form button {
-        font-size: 14px; /* Ajusta tamanho do botão */
+        font-size: 14px; /* Ajuste tamanho do botão */
         padding: 10px; /* Reduz o padding do botão */
     }
-
     .contact-info {
         grid-column: 1 / -1; /* Centraliza as informações de contato */
         text-align: center;
         padding: 10px; /* Adiciona padding para separar conteúdo */
     }
-
     .contact-info h2 {
         font-size: 20px; /* Ajusta tamanho da fonte */
     }
-
     .contact-info p {
         font-size: 14px; /* Ajusta tamanho do texto */
     }
@@ -608,7 +743,7 @@ footer {
 
     .grid_content {
         grid-template-columns: repeat(6, 1fr); /* Reduz o número de colunas */
-        grid-template-rows: repeat(4, auto); /* Mais flexibilidade para linhas */
+        grid-template-rows: repeat(4, auto); /* 4 linhas para acomodar todas as seções */
     }
 
     .logo img {
@@ -619,9 +754,15 @@ footer {
         gap: 8px;
     }
 
-    /* Apresentação */
+    /* Apresentação - PRIMEIRA SEÇÃO */
     .apresentacao {
+        grid-column: 1 / -1;
+        grid-row: 1; /* Primeira linha */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 15px;
+        order: 1;
     }
 
     .descricao {
@@ -646,37 +787,104 @@ footer {
         border-radius: 5px;
     }
 
+    /* Produtos/Carousel - SEGUNDA SEÇÃO */
     .linhas_prod {
-        grid-column: 1 / -1; /* Ocupa a largura inteira no layout responsivo */
-        grid-row: auto; /* Ajuste automático */
+        grid-column: 1 / -1;
+        grid-row: 2; /* Segunda linha */
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
+        order: 2;
     }
 
     .carousel-container {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: flex;
         flex-direction: column;
         gap: 10px;
+        order: 2;
     }
 
     .carousel-item {
         padding: 8px;
+        min-width: 100%;
     }
 
     .carousel-item img {
         aspect-ratio: 1 / 1;
+        width: 100%;
+        object-fit: cover;
     }
 
-    /* Contato */
+    /* Clientes - TERCEIRA SEÇÃO (ANTES DO CONTATO) */
+    .clientes-section {
+        grid-column: 1 / -1;
+        grid-row: 3; /* Terceira linha - ANTES do contato */
+        padding: 1rem 0.5rem;
+        text-align: center;
+        order: 3; /* Ordem 3 - antes do contato */
+    }
+    
+    .clientes h1 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: #1f2424;
+        font-family: 'Bai Jamjuree', system-ui;
+        font-weight: 900;
+    }
+    
+    .clientes-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em mobile pequeno */
+        gap: 0.8rem;
+        align-items: center;
+        justify-items: center;
+    }
+    
+    .cliente-logo {
+        height: 60px;
+        padding: 0.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .cliente-logo:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+    }
+    
+    .cliente-logo img {
+        max-height: 40px;
+        max-width: 100%;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+    }
+    
+    .cliente-logo img:hover {
+        filter: grayscale(0%);
+    }
+
+    /* Contato - QUARTA SEÇÃO (DEPOIS DOS CLIENTES) */
     .contato {
+        grid-column: 1 / -1;
+        grid-row: 4; /* Quarta linha - DEPOIS dos clientes */
+        display: flex;
+        flex-direction: column;
         gap: 15px;
         padding: 15px;
+        order: 4; /* Ordem 4 - depois dos clientes */
     }
 
     .contato h1 {
         font-size: 20px;
+        text-align: center;
     }
 
     .contact-form {
@@ -696,6 +904,7 @@ footer {
 
     .contact-info {
         padding: 8px;
+        text-align: center;
     }
 
     .contact-info h2 {
@@ -704,5 +913,14 @@ footer {
 
     .contact-info p {
         font-size: 12px;
+    }
+
+    /* Container de produtos */
+    .prod_container {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 10px;
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 }

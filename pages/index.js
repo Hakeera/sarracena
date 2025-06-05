@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Header from '../components/Header';
 import Contato from '../components/Contato';
+import Clientes from '../components/Clientes'; // ajuste o caminho conforme sua estrutura
 import Head from 'next/head';
 import SchemaMarkup from '../components/SchemaMarkup';
 
@@ -172,6 +173,9 @@ export default function Home() {
                             <button className="next" onClick={() => moveCarousel(1)}>&#10095;</button>
                         </div>
                     </div>
+
+                    {/* Componente de Clientes */}
+                    <Clientes />
 
                     {/* Componente de Contato */}
                     <Contato />
